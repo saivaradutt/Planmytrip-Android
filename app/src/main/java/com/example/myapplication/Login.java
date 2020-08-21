@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.common.server.converter.StringToIntConverter;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,6 +24,9 @@ public class Login extends AppCompatActivity {
 
     public EditText email, password;
     String fN,lN, valueEmail, valuePassword;
+    FirebaseAuth mAuth;
+
+    private FirebaseAuth.AuthStateListener authStateListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,58 +40,23 @@ public class Login extends AppCompatActivity {
 
     public void btnLoginClicked(View view){
 
-        valueEmail = null;
-        valuePassword = null;
-
         valueEmail = email.getText().toString().trim();
-        valuePassword = password.getText().toString().trim();
+        valuePassword = password.getText().toString();
+        String vE = "aviciiram@gmail.com";
+        String vP = "abc123...";
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
-        Query checkUser = reference.orderByChild("fName").equalTo(valueEmail);
+        if(valueEmail.isEmpty() || valuePassword.isEmpty()){
+            Toast.makeText(this, "Email or password shouldn't be empty", Toast.LENGTH_SHORT).show();
+        }else{
+            if(valueEmail.equals(vE)  && valuePassword.equals(vP)){
 
-        checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                //try {
-
-                    if (dataSnapshot.exists()) {
-
-                        String pwdFromDB = dataSnapshot.child(valueEmail).child("password").getValue(String.class);
-
-                        if (pwdFromDB.equals(valuePassword)) {
-
-                            fN = dataSnapshot.child(valueEmail).child("fName").getValue(String.class);
-                            lN = dataSnapshot.child(valueEmail).child("lName").getValue(String.class);
-
-                            Toast.makeText(Login.this, "User Logged in: " + fN + " " + lN, Toast.LENGTH_SHORT).show();
-
-                        } else {
-                            Toast.makeText(Login.this, "Password entered wrong.", Toast.LENGTH_SHORT).show();
-                        }
-                    } else {
-                        Toast.makeText(Login.this, "User not found with the email address provided.", Toast.LENGTH_SHORT).show();
-                    }
-                /*}catch (Exception e){
-                    Toast.makeText(Login.this, "Logged Successfully" +fN +" " + lN, Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getApplicationContext(), ProfilePage.class);
-
-                    intent.putExtra("fN ", fN);
-                    intent.putExtra("lN ", lN);
-                    intent.putExtra("email ", valueEmail);
-
-                    startActivity(intent);
-
-                    System.out.println(e);
-                }*/
+                startActivity(new Intent(this, ProfilePage.class));
             }
-
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
+            else {
+                Toast.makeText(this, "OOPS!! You will be stuck till credentials matches.", Toast.LENGTH_SHORT).show();
             }
-        });
+        }
+
 
     }
 

@@ -17,9 +17,6 @@ public class mainscreen extends AppCompatActivity {
 
     RecyclerView countryRecyclerView, packageRecycler;
 
-
-
-
     TravelPackagesAdapter travelPackagesAdapter;
     List<TravelPackages> travelPackagesList;
 

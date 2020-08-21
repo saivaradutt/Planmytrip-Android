@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.EditText;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class ProfilePage extends AppCompatActivity {
 
     EditText fNtxt, lNtxt, emailtxt, passwordtxt;
@@ -25,15 +28,8 @@ public class ProfilePage extends AppCompatActivity {
 
     public void getData(){
 
-        Intent intent = getIntent();
-
-        String fN = intent.getStringExtra("fN");
-        String lN = intent.getStringExtra("lN");
-        String email = intent.getStringExtra("email");
-
-        fNtxt.setText(fN);
-        lNtxt.setText(lN);
-        emailtxt.setText(email);
-
+    fNtxt.setText("Avicii");
+    lNtxt.setText("Ram");
+    emailtxt.setText("aviciiram@gmail.com");
     }
 }
