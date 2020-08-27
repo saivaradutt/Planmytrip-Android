@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.myapplication.HotelData;
 import com.example.myapplication.R;
 import com.example.myapplication.model.Hotel;
 
@@ -25,9 +27,10 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.HotelViewHol
     public class HotelViewHolder extends RecyclerView.ViewHolder {
 
         public TextView name, city, desc;
-
+        public ImageView productImage;
         public HotelViewHolder(View view) {
             super(view);
+            productImage = view.findViewById(R.id.product_image);
             name = view.findViewById(R.id.txtHotelName);
             city = view.findViewById(R.id.txtCity);
             desc = view.findViewById(R.id.txtDesc);
@@ -54,6 +57,7 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.HotelViewHol
     public void onBindViewHolder(@NonNull HotelViewHolder holder, int position) {
 
         Hotel hotel = hotelList.get(position);
+        holder.productImage.setImageResource(HotelData.getImageID(hotel.getImageName()));
         holder.name.setText(hotel.getHotelName());
         holder.city.setText(hotel.getCity());
         holder.desc.setText(hotel.getDescription());

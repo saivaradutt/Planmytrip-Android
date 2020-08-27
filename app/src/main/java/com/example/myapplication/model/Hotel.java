@@ -1,16 +1,19 @@
 package com.example.myapplication.model;
 
+import android.graphics.drawable.Drawable;
+
 public class Hotel  {
 
     public String hotelName;
     public String city;
     public String description;
+    public String imageName;;
 
-
-    public Hotel(String hotelName, String city, String description) {
+    public Hotel(String hotelName, String city, String description,String imageName) {
         this.hotelName = hotelName;
         this.city = city;
         this.description = description;
+        this.imageName=imageName;
     }
 
     public String getHotelName() {
@@ -35,6 +38,13 @@ public class Hotel  {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+    public String getImageName() {
+        return imageName;
+    }
+
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
     }
 
 }
