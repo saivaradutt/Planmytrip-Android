@@ -87,13 +87,39 @@
         android:layout_height="57dp"
         android:backgroundTint="#0C0C0C"
         android:text="Update"
+        android:onClick="btnUpdateClick"
         android:textColor="#FBF8F8"
         android:textColorHint="#A64040"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.211"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.667" />
+        app:layout_constraintVertical_bias="0.673" />
 
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="123dp"
+        android:layout_height="57dp"
+        android:backgroundTint="#0C0C0C"
+        android:text="Cancel"
+        android:onClick="btnCancelClick"
+        android:textColor="#FBF8F8"
+        android:textColorHint="#A64040"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.822"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.673" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <include layout="@layout/layout_bottom_navigation_view" />
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

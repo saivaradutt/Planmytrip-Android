@@ -49,4 +49,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView5"
         app:srcCompat="@drawable/ic_account_settings" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <include layout="@layout/layout_bottom_navigation_view" />
+    </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
