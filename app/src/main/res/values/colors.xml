@@ -6,4 +6,6 @@
     <color name="grey">#bfbfbf</color>
     <color name="white">#87CEEB</color>
     <color name="black">#000000</color>
+    <color name="viewBg">#f1f5f8</color>
+    <color name="hotel_title">#4c4c4c</color>
 </resources>

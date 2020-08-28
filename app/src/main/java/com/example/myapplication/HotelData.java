@@ -1,25 +1,25 @@
 package com.example.myapplication;
 
-import com.example.myapplication.model.Hotel;
+import com.example.myapplication.model.Country;
 
 import java.util.ArrayList;
 
 public class HotelData {
 
-    private static ArrayList<Hotel> hotels;
+    private static ArrayList<Country> countries;
 
     private static void initData() {
-        hotels = new ArrayList<>();
-        hotels.add(new Hotel ("Novotel", "Montreal", "It's very good hotel","canada"));
-        hotels.add(new Hotel ("Marraiot", "Toronto", "It's nice hotel","canada"));
-        hotels.add(new Hotel ("Gatway ", "Vancouver", "It's very good hotel","canada"));
-        hotels.add(new Hotel ("Trump's Hotel ", "Texas", "It's very good hotel","canada"));
+        countries = new ArrayList<>();
+        countries.add(new Country("Novotel", "Montreal", "It's very good hotel","canada"));
+        countries.add(new Country("Marraiot", "Toronto", "It's nice hotel","canada"));
+        countries.add(new Country("Gatway ", "Vancouver", "It's very good hotel","canada"));
+        countries.add(new Country("Trump's Hotel ", "Texas", "It's very good hotel","canada"));
     }
 
-    public static ArrayList<Hotel> getAll() {
-        if (hotels == null)
+    public static ArrayList<Country> getAll() {
+        if (countries == null)
             initData();
-        return hotels;
+        return countries;
     }
     public static int getImageID(String imageName) {
         try {

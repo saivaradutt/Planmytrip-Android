@@ -2,14 +2,14 @@ package com.example.myapplication.model;
 
 import android.graphics.drawable.Drawable;
 
-public class Hotel  {
+public class Country {
 
     public String hotelName;
     public String city;
     public String description;
     public String imageName;;
 
-    public Hotel(String hotelName, String city, String description,String imageName) {
+    public Country(String hotelName, String city, String description, String imageName) {
         this.hotelName = hotelName;
         this.city = city;
         this.description = description;

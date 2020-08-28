@@ -1,11 +1,9 @@
-package com.example.myapplication.adapter;
+package com.example.myapplication.Adapters;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,13 +12,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.HotelData;
 import com.example.myapplication.R;
-import com.example.myapplication.model.Hotel;
+import com.example.myapplication.model.Country;
 
 import java.util.List;
 
-public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.HotelViewHolder>{
+public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.HotelViewHolder>{
 
-    private List<Hotel> hotelList;
+    private List<Country> countryList;
 
     public Context context;
 
@@ -38,9 +36,9 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.HotelViewHol
         }
     }
 
-    public HotelAdapter(List<Hotel> productList, Context context) {
+    public CountryAdapter(List<Country> productList, Context context) {
         this.context = context;
-        this.hotelList = productList;
+        this.countryList = productList;
     }
 
     @NonNull
@@ -56,17 +54,17 @@ public class HotelAdapter extends RecyclerView.Adapter<HotelAdapter.HotelViewHol
     @Override
     public void onBindViewHolder(@NonNull HotelViewHolder holder, int position) {
 
-        Hotel hotel = hotelList.get(position);
-        holder.productImage.setImageResource(HotelData.getImageID(hotel.getImageName()));
-        holder.name.setText(hotel.getHotelName());
-        holder.city.setText(hotel.getCity());
-        holder.desc.setText(hotel.getDescription());
+        Country country = countryList.get(position);
+        holder.productImage.setImageResource(HotelData.getImageID(country.getImageName()));
+        holder.name.setText(country.getHotelName());
+        holder.city.setText(country.getCity());
+        holder.desc.setText(country.getDescription());
 
     }
 
     @Override
     public int getItemCount() {
-        return hotelList.size();
+        return countryList.size();
     }
 
 }

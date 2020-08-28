@@ -9,12 +9,36 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ProfilePage"></activity>
-        <activity android:name=".signup" />
-        <activity android:name=".Login" />
-        <activity android:name=".checkmore" />
-        <activity android:name=".mainscreen" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".HotelViewer"></activity>
+        <activity
+            android:name=".HotelMainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            >
+        </activity>
+        <activity android:name=".HotelLoginActivity" />
+        <activity
+            android:name=".ProfilePage"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".signup"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Login"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".checkmore"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".mainscreen"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

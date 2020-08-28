@@ -1,8 +1,6 @@
 package com.example.myapplication;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -12,26 +10,21 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myapplication.adapter.HotelAdapter;
-import com.example.myapplication.adapter.TravelPackagesAdapter;
-import com.example.myapplication.model.Hotel;
-import com.example.myapplication.model.TravelPackages;
-import com.example.myapplication.model.UserProfile;
+import com.example.myapplication.Adapters.CountryAdapter;
+import com.example.myapplication.model.Country;
 
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.example.myapplication.R.drawable.*;
 
 public class mainscreen extends AppCompatActivity {
 
     //RecyclerView countryRecyclerView, packageRecycler;
     TextView allCategory;
 
-    private List<Hotel> hotelList = new ArrayList<>();
+    private List<Country> countryList = new ArrayList<>();
     private RecyclerView recyclerView;
-    private HotelAdapter mAdapter;
+    private CountryAdapter mAdapter;
 
 
     @Override
@@ -42,10 +35,10 @@ public class mainscreen extends AppCompatActivity {
 
         Toast.makeText(this, "Entered", Toast.LENGTH_SHORT).show();
         System.out.println("Entered");
-        hotelList = HotelData.getAll();
+        countryList = HotelData.getAll();
         recyclerView = findViewById(R.id.categoryRecycler);
 
-        mAdapter = new HotelAdapter(hotelList, mainscreen.this);
+        mAdapter = new CountryAdapter(countryList, mainscreen.this);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
