@@ -1,13 +1,16 @@
 package com.example.myapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -26,6 +29,33 @@ public class ProfilePage extends AppCompatActivity {
         passwordtxt = (EditText) findViewById(R.id.ProfilePwd);
 
         getData();
+
+        BottomNavigationView bottomNavigationView=findViewById(R.id.bottomNavViewBar);
+        bottomNavigationView.setSelectedItemId(R.id.ic_circle);
+        bottomNavigationView.setSelectedItemId(R.id.ic_alert);
+        bottomNavigationView.setSelectedItemId(R.id.ic_house);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+                                                                     @Override
+                                                                     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                                                                         switch(menuItem.getItemId())
+                                                                         {
+                                                                             case R.id.ic_circle:
+                                                                                 startActivity(new Intent(getApplicationContext(),ProfilePage.class));
+                                                                                 overridePendingTransition(0,0);
+                                                                                 return true;
+                                                                             case R.id.ic_alert:
+                                                                                 startActivity(new Intent(getApplicationContext(),feedback.class));
+                                                                                 overridePendingTransition(0,0);
+                                                                                 return true;
+                                                                             case R.id.ic_house:
+                                                                                 startActivity(new Intent(getApplicationContext(),aboutus.class));
+                                                                                 overridePendingTransition(0,0);
+                                                                                 return true;
+                                                                         }
+                                                                         return false;
+                                                                     }
+                                                                 }
+        );
     }
 
     public void getData(){
