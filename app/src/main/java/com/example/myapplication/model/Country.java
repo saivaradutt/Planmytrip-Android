@@ -4,46 +4,37 @@ import android.graphics.drawable.Drawable;
 
 public class Country {
 
-    public String hotelName;
-    public String city;
-    public String description;
-    public String imageName;;
+    public String countryName;
+    public String countryDescription;
+    public int imageName;
 
-    public Country(String hotelName, String city, String description, String imageName) {
-        this.hotelName = hotelName;
-        this.city = city;
-        this.description = description;
-        this.imageName=imageName;
+    public Country(String countryName, String countryDescription, int imageName) {
+        this.countryName = countryName;
+        this.countryDescription = countryDescription;
+        this.imageName = imageName;
     }
 
-    public String getHotelName() {
-        return hotelName;
+    public String getCountryName() {
+        return countryName;
     }
 
-    public void setHotelName(String hotelName) {
-        this.hotelName = hotelName;
+    public void setCountryName(String countryName) {
+        this.countryName = countryName;
     }
 
-    public String getCity() {
-        return city;
+    public String getCountryDescription() {
+        return countryDescription;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setCountryDescription(String countryDescription) {
+        this.countryDescription = countryDescription;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-    public String getImageName() {
+    public int getImageName() {
         return imageName;
     }
 
-    public void setImageName(String imageName) {
+    public void setImageName(int imageName) {
         this.imageName = imageName;
     }
 

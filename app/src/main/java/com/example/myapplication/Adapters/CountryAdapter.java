@@ -1,6 +1,7 @@
 package com.example.myapplication.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,16 +12,20 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.HotelData;
+import com.example.myapplication.HotelMainActivity;
 import com.example.myapplication.R;
+import com.example.myapplication.mainscreen;
 import com.example.myapplication.model.Country;
 
 import java.util.List;
+
+import static androidx.core.content.ContextCompat.startActivity;
 
 public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.HotelViewHolder>{
 
     private List<Country> countryList;
 
-    public Context context;
+    private Context context;
 
     public class HotelViewHolder extends RecyclerView.ViewHolder {
 
@@ -52,13 +57,23 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.HotelVie
     }
 
     @Override
-    public void onBindViewHolder(@NonNull HotelViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull final HotelViewHolder holder, int position) {
 
         Country country = countryList.get(position);
-        holder.productImage.setImageResource(HotelData.getImageID(country.getImageName()));
-        holder.name.setText(country.getHotelName());
-        holder.city.setText(country.getCity());
-        holder.desc.setText(country.getDescription());
+        holder.productImage.setImageResource(country.getImageName());
+        //holder.productImage.setImageResource(HotelData.getImageID(country.getImageName()));
+        holder.name.setText(country.getCountryName());
+        //holder.city.setText(country.getCity());
+        holder.desc.setText(country.getCountryDescription());
+
+        holder.productImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, HotelMainActivity.class);
+                intent.putExtra("countryName", holder.name.getText().toString());
+                context.startActivity(intent);
+            }
+        });
 
     }
 
@@ -66,5 +81,6 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.HotelVie
     public int getItemCount() {
         return countryList.size();
     }
+
 
 }

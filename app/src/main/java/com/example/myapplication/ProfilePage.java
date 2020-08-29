@@ -73,7 +73,7 @@ public class ProfilePage extends AppCompatActivity {
 
     public void btnCancelClick(View view){
 
-        startActivity(new Intent(this, HotelLoginActivity.class));
+        startActivity(new Intent(this, mainscreen.class));
     }
 
 }
