@@ -47,8 +47,10 @@ public class Login extends AppCompatActivity {
                 Toast.makeText(this, "OOPS!! You will be stuck till credentials matches.", Toast.LENGTH_SHORT).show();
             }
         }
+    }
 
-
+    public void btnSignUp(View view){
+        startActivity(new Intent(this, signup.class));
     }
 
 }
