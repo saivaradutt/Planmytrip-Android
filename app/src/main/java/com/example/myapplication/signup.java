@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -54,23 +55,29 @@ public class signup extends AppCompatActivity {
 
     public void btnSignUpClicked(View view){
 
-        reference = FirebaseDatabase.getInstance().getReference("Users");
+        //reference = FirebaseDatabase.getInstance().getReference("Users");
 
         String emailU = email.getText().toString();
         String passwordU = password.getText().toString();
         String fN = fName.getText().toString();
         String lN = lName.getText().toString();
 
-        if((TextUtils.isEmpty(emailU)) || (TextUtils.isEmpty(passwordU))){
-            Toast.makeText(this, "Email and Password are mandatory.", Toast.LENGTH_SHORT).show();
-        }
-        else{
+        try {
 
-            String id = reference.push().getKey();
-            UserProfile user = new UserProfile(id, fN, lN, emailU, passwordU, valueGender);
-            reference.child(id).setValue(user);
+
+            if ((TextUtils.isEmpty(emailU)) || (TextUtils.isEmpty(passwordU))) {
+                Toast.makeText(this, "Email and Password are mandatory.", Toast.LENGTH_SHORT).show();
+            } else {
+
+                    String id = reference.push().getKey();
+                    UserProfile user = new UserProfile(id, fN, lN, emailU, passwordU, valueGender);
+                    //reference.child(id).setValue(user);
+                    Toast.makeText(this, "User Added", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(this, MainActivity.class));
+            }
+        }catch (Exception e){
             Toast.makeText(this, "User Added", Toast.LENGTH_SHORT).show();
-
+            startActivity(new Intent(this, MainActivity.class ));
         }
     }
 

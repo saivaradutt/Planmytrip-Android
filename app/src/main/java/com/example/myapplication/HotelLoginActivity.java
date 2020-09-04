@@ -29,7 +29,7 @@ public class HotelLoginActivity extends AppCompatActivity {
         if(user.getUsers().contains(name))
         {
             CurrentUser cuser = new CurrentUser(name);
-            Intent intent = new Intent(getApplicationContext(), HotelMainActivity.class);
+            Intent intent = new Intent(getApplicationContext(), mainscreen.class);
             startActivity(intent);
         }
         else

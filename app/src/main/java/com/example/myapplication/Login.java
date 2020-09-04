@@ -41,7 +41,7 @@ public class Login extends AppCompatActivity {
         }else{
             if(valueEmail.equals(vE)  && valuePassword.equals(vP)){
 
-                startActivity(new Intent(this,mainscreen.class));
+                startActivity(new Intent(this,HotelLoginActivity.class));
             }
             else {
                 Toast.makeText(this, "OOPS!! You will be stuck till credentials matches.", Toast.LENGTH_SHORT).show();

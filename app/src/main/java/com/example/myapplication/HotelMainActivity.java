@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -26,6 +27,7 @@ import com.example.myapplication.Util.HotelView;
 import com.example.myapplication.Util.Reader;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,6 +68,33 @@ public class HotelMainActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        BottomNavigationView bottomNavigationView=findViewById(R.id.bottomNavViewBar);
+        bottomNavigationView.setSelectedItemId(R.id.ic_circle);
+        bottomNavigationView.setSelectedItemId(R.id.ic_alert);
+        bottomNavigationView.setSelectedItemId(R.id.ic_house);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+                                                                     @Override
+                                                                     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                                                                         switch(menuItem.getItemId())
+                                                                         {
+                                                                             case R.id.ic_circle:
+                                                                                 startActivity(new Intent(getApplicationContext(),ProfilePage.class));
+                                                                                 overridePendingTransition(0,0);
+                                                                                 return true;
+                                                                             case R.id.ic_alert:
+                                                                                 startActivity(new Intent(getApplicationContext(),feedback.class));
+                                                                                 overridePendingTransition(0,0);
+                                                                                 return true;
+                                                                             case R.id.ic_house:
+                                                                                 startActivity(new Intent(getApplicationContext(),aboutus.class));
+                                                                                 overridePendingTransition(0,0);
+                                                                                 return true;
+                                                                         }
+                                                                         return false;
+                                                                     }
+                                                                 }
+        );
     }
 
     /**
