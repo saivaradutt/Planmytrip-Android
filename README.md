@@ -9,5 +9,7 @@ To Start:
 
 Run the emulator in android studio and click on Login button using credentials
 
-Username: aviciiram@gmail.com
+email: aviciiram@gmail.com
 Password: abc123...
+
+username: adnan
